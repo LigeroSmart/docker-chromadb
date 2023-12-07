@@ -1,0 +1,23 @@
+# ghcr.io/ligerosmart/docker-chromadb:main
+
+version: '3.8'
+
+services:
+  chromadb:
+    image: ghcr.io/ligerosmart/docker-chromadb:main
+    volumes:
+      - chromadb-data:/var/lib/chromadb
+    deploy:
+      mode: replicated
+      replicas: 1
+      #placement:
+      #  constraints:
+      #    - node.labels.database == true
+      #resources:
+      #  limits:
+      #    cpus: '1'
+      #    memory: 2G
+
+volumes:
+  chromadb-data:
+    driver: local
